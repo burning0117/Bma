@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="domain.Good" table="goods" catalog="bma">
+        <id name="gId" type="java.lang.Long" length="5">
+            <column name="gId"></column>
+            <generator class="increment"></generator>
+        </id>
+        <property name="name" type="java.lang.String" length="20"></property>
+        <property name="price" type="java.math.BigDecimal" length="20"></property>
+        <property name="priceRate" type="java.math.BigDecimal" length="20"></property>
+        <property name="gReputation" type="java.math.BigDecimal" length="20"></property>
+        <property name="gReputationRate" type="java.math.BigDecimal" length="20"></property>
+        <property name="gQos" type="java.math.BigDecimal" length="20"></property>
+        <property name="gQosRate" type="java.math.BigDecimal" length="20"></property>
+        <many-to-one name="user" class="domain.User" unique="true">
+            <column name="uId"></column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

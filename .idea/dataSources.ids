@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - bma@localhost" uuid="6bb5f6c4-30a6-4820-94cd-249a22b45bf5">
+    <database-info product="MySQL" version="5.6.26-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="bma"/>
+    <table name="goods" schema="" catalog="bma" type="TABLE">
+      <column name="g_Id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="g_Name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="g_Price" sqlType="DECIMAL" precision="2" scale="2" nullable="true" jdbcType="3"/>
+      <column name="g_PriceRate" sqlType="DECIMAL" precision="2" scale="2" nullable="true" jdbcType="3"/>
+      <column name="g_Reputation" sqlType="DECIMAL" precision="2" scale="2" nullable="true" jdbcType="3"/>
+      <column name="g_ReputationRate" sqlType="DECIMAL" precision="2" scale="2" nullable="true" jdbcType="3"/>
+      <column name="g_Qos" sqlType="DECIMAL" precision="2" scale="2" nullable="true" jdbcType="3"/>
+      <column name="g_QosRate" sqlType="DECIMAL" precision="2" scale="2" nullable="true" jdbcType="3"/>
+      <column name="u_Id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="g_Id"/>
+      <foreign-key name="goods_ibfk_1" columns="u_Id" ref-table="users" ref-schema="" ref-catalog="bma" ref-columns="u_Id" update-rule="0" delete-rule="2" deferrability="2"/>
+    </table>
+    <table name="productions" schema="" catalog="bma" type="TABLE">
+      <column name="p_Id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="p_Name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="p_Price" sqlType="DECIMAL" precision="2" scale="2" nullable="true" jdbcType="3"/>
+      <column name="p_PriceRate" sqlType="DECIMAL" precision="2" scale="2" nullable="true" jdbcType="3"/>
+      <column name="p_Reputation" sqlType="DECIMAL" precision="2" scale="2" nullable="true" jdbcType="3"/>
+      <column name="p_ReputationRate" sqlType="DECIMAL" precision="2" scale="2" nullable="true" jdbcType="3"/>
+      <column name="p_Qos" sqlType="DECIMAL" precision="2" scale="2" nullable="true" jdbcType="3"/>
+      <column name="s_Id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="p_Id"/>
+      <foreign-key name="productions_ibfk_1" columns="s_Id" ref-table="sellers" ref-schema="" ref-catalog="bma" ref-columns="s_Id" update-rule="0" delete-rule="2" deferrability="2"/>
+      <index name="u_id" unique="false" columns="s_Id"/>
+    </table>
+    <table name="sellers" schema="" catalog="bma" type="TABLE">
+      <column name="s_Id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="s_Name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_Description" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_Address" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_Telephone" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="s_Reputation" sqlType="DECIMAL" precision="2" scale="2" nullable="true" jdbcType="3"/>
+      <primary-key name="PRIMARY" columns="s_Id"/>
+      <exported-key name="productions_ibfk_1" table="productions" schema="" catalog="bma" columns="s_Id"/>
+    </table>
+    <table name="users" schema="" catalog="bma" type="TABLE">
+      <column name="u_Id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="u_Name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="u_Description" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="u_Address" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="u_Telephone" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="u_Reputation" sqlType="DECIMAL" precision="2" scale="2" nullable="true" jdbcType="3"/>
+      <primary-key name="PRIMARY" columns="u_Id"/>
+      <exported-key name="goods_ibfk_1" table="goods" schema="" catalog="bma" columns="u_Id"/>
+    </table>
+  </data-source>
+</component>
