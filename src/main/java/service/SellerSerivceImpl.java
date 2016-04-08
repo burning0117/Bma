@@ -18,22 +18,22 @@ public class SellerSerivceImpl implements SellerService {
     private SellerDao sellerDao;
     @Transactional(readOnly = false)
     public void saveSeller(Seller seller) {
-        this.sellerDao.saveSeller(seller);
+        this.sellerDao.saveEntry(seller);
     }
     @Transactional(readOnly = false)
     public void deleteSeller(Serializable id, String deleteMode) {
-        this.sellerDao.deleteSeller(id, deleteMode);
+        this.sellerDao.deleteEntry(id);
     }
     @Transactional(readOnly = false)
     public void updateSeller(Seller seller) {
-        this.sellerDao.updateSeller(seller);
+        this.sellerDao.updateEntry(seller);
     }
 
     public Collection<Seller> getAllSeller() {
-        return this.sellerDao.getAllSeller();
+        return this.sellerDao.getAllEntry();
     }
 
     public Seller getSellerById(Serializable id) {
-        return this.sellerDao.getSellerById(id);
+        return (Seller) this.sellerDao.getEntryById(id);
     }
 }

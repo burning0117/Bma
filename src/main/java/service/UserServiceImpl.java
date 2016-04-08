@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
 
     @Transactional(readOnly = false)
     public void saveUser(User user) {
-        this.userDao.saveUser(user);
+        this.userDao.saveEntry(user);
     }
 
     @Transactional(readOnly = false)
@@ -29,14 +29,14 @@ public class UserServiceImpl implements UserService {
 
     @Transactional(readOnly = false)
     public void deleteUserById(Serializable id, String deleteMode) {
-        this.userDao.deleteUserById(id, deleteMode);
+        this.userDao.deleteEntry(id);
     }
 
-    public Collection<User> getAllUser(User user) {
-        return this.userDao.getAllUser(user);
+    public Collection<User> getAllUser() {
+        return this.userDao.getAllEntry();
     }
 
     public User getUserById(Serializable id) {
-        return this.userDao.getUserById(id);
+        return (User) this.userDao.getEntryById(id);
     }
 }

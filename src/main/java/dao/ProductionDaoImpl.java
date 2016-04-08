@@ -11,23 +11,5 @@ import java.util.Collection;
  */
 @Repository("productionDao")
 public class ProductionDaoImpl extends BaseDaoImpl<Production> implements ProductionDao<Production>{
-    public void saveProduction(Production production) {
-        this.saveEntry(production);
-    }
 
-    public void deleteProduction(Serializable id, String deleteMode) {
-
-    }
-
-    public void updateProduction(Production production) {
-        this.updateEntry(production);
-    }
-
-    public Collection<Production> getAllProductions() {
-        return this.getAllEntry();
-    }
-
-    public Production getProductionById(Serializable id) {
-        return this.getEntryById(id);
-    }
 }

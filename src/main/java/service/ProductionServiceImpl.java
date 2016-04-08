@@ -19,24 +19,24 @@ public class ProductionServiceImpl implements ProductionService {
 
     @Transactional(readOnly = false)
     public void saveProduction(Production production) {
-        this.productionDao.saveProduction(production);
+        this.productionDao.saveEntry(production);
     }
 
     @Transactional(readOnly = false)
     public void deleteProduction(Serializable id, String deleteMode) {
-        this.productionDao.deleteProduction(id, deleteMode);
+        this.productionDao.deleteEntry(id);
     }
 
     @Transactional(readOnly = false)
     public void updateProduction(Production production) {
-        this.productionDao.updateProduction(production);
+        this.productionDao.updateEntry(production);
     }
 
     public Collection<Production> getAllProductions() {
-        return this.productionDao.getAllProductions();
+        return this.productionDao.getAllEntry();
     }
 
     public Production getProductionById(Serializable id) {
-        return this.productionDao.getProductionById(id);
+        return (Production) this.productionDao.getEntryById(id);
     }
 }

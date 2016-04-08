@@ -12,6 +12,6 @@ public interface UserService{
    public void saveUser(User user);
    public void updateUser(User user);
    public void deleteUserById(Serializable id, String deleteMode);
-   public Collection<User> getAllUser(User user);
+   public Collection<User> getAllUser();
    public User getUserById(Serializable id);
 }

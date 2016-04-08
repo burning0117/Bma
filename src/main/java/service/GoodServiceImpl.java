@@ -19,12 +19,12 @@ public class GoodServiceImpl implements GoodService {
 
     @Transactional(readOnly = false)
     public void saveGood(Good good) {
-        this.goodDao.saveGood(good);
+        this.goodDao.saveEntry(good);
     }
 
     @Transactional(readOnly = false)
     public void deleteGood(Serializable id, String deleteMode) {
-        this.goodDao.deleteGood(id, deleteMode);
+        this.goodDao.deleteEntry(id);
     }
 
     @Transactional(readOnly = false)
@@ -37,6 +37,6 @@ public class GoodServiceImpl implements GoodService {
     }
 
     public Good getGoodById(Serializable id) {
-        return this.goodDao.getGoodById(id);
+        return (Good) this.goodDao.getEntryById(id);
     }
 }

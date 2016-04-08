@@ -5,7 +5,10 @@
 <struts>
     <package name="seller" namespace="/" extends="struts-default">
         <action name="sellerAction_*" method="{1}" class="sellerAction">
-
+            <result name="listAction">WEB-INF/jsp/seller/list.jsp</result>
+            <result name="addUI">WEB-INF/jsp/seller/add.jsp</result>
+            <result name="updateUI">WEB-INF/jsp/seller/update.jsp</result>
+            <result name="action2action" type="redirectAction">sellerAction_getAllSeller.action</result>
         </action>
     </package>
 </struts>

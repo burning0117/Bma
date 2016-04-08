@@ -20,14 +20,13 @@ public class GoodAction extends BaseAction<Good>{
    @Resource(name = "goodService")
    private GoodService goodService;
    public String getAllGood(){
-      Collection<Good> goods=this.goodService.getAllGoods();
-      ActionContext.getContext().put("goods",goods);
-      //TODO
-      return null;
+      Collection<Good> goodList=this.goodService.getAllGoods();
+      ActionContext.getContext().put("goodList",goodList);
+      return listAction;
    }
    public String deleteGood(){
       this.goodService.deleteGood(this.getModel().getgId(), DeleteMode.DEL_PRE_RELEASE);
-      return null;
+      return action2action;
    }
    public String addUI(){
       return addUI;
@@ -36,6 +35,17 @@ public class GoodAction extends BaseAction<Good>{
       Good good=new Good();
       BeanUtils.copyProperties(this.getModel(),good);
       this.goodService.saveGood(good);
-      return null;
+      return action2action;
+   }
+   public String updateUI(){
+      Good good=this.goodService.getGoodById(this.getModel().getgId());
+      ActionContext.getContext().getValueStack().getRoot().add(0, good);
+      return updateUI;
+   }
+   public String update(){
+      Good good=this.goodService.getGoodById(this.getModel().getgId());
+      BeanUtils.copyProperties(this.getModel(),good);
+      this.goodService.updateGood(good);
+      return action2action;
    }
 }
